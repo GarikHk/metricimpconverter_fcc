@@ -2,10 +2,10 @@ function ConvertHandler() {
 
   this.getNum = function (input) {
     let result = input.replace(/[^0-9.\/]/g, "");
-    
-    if(!/^[^\/]*\/[^\/]*$/.test(result)) return 'Invalid number';
+
+    if (result.includes('/') && !/^[^\/]*\/[^\/]*$/.test(result)) return 'Invalid number';
     if (result == "") return 1;
-    return Math.round(eval(result) * 10000)/10000;;
+    return Math.round(eval(result) * 10000) / 10000;;
   };
 
   this.getUnit = function (input) {
@@ -98,11 +98,11 @@ function ConvertHandler() {
         break;
     }
 
-    return Math.round(result * 10000)/10000;
+    return Math.round(result * 10000) / 10000;
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    let result  = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
+    let result = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
 
     return result;
   };
