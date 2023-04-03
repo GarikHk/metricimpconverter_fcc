@@ -2,9 +2,9 @@ function ConvertHandler() {
 
   this.getNum = function (input) {
     let result = input.replace(/[^0-9.\/]/g, "");
+    
     if (result == "") return 1;
-
-    return result;
+    return Math.round(result * 10000)/10000;
   };
 
   this.getUnit = function (input) {
@@ -97,15 +97,14 @@ function ConvertHandler() {
         break;
     }
 
-    return result;
+    return Math.round(result * 10000)/10000;
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    let result  = `${initNum} ${initUnit} converts to ${returnNum} ${returnUnit}`;
+    let result  = `${initNum} ${this.spellOutUnit(initUnit)} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
 
     return result;
   };
-
 }
 
 module.exports = ConvertHandler;
