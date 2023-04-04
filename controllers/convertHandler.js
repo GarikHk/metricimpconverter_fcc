@@ -11,8 +11,8 @@ function ConvertHandler() {
   this.getNum = function (input) {
     let result = input.replace(/[^0-9.\/]/g, "");
 
-    if (result.includes('/') && !/^[^\/]*\/[^\/]*$/.test(result)) return 'invalid number';
     if (result == "") return 1;
+    if (!/^(?!\/)(\d*\.?\d+\/\d+(\.\d+)?)?$|^(\d*\.?\d+)$/.test(result)) return 'invalid number';
     return Math.round(eval(result) * 100000) / 100000;;
   };
 
