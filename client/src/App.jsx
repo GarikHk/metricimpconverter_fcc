@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function App() {
     const [formData, setFormData] = useState({ input: "" })
     const [result, setResult] = useState("");
-    const [jsonResult, setJsonResult] = useState("");
+    const [display, setDisplay] = useState(false)
 
     function handleChange(event) {
         const { value } = event.target
@@ -22,8 +22,7 @@ export default function App() {
         })
             .then(response => response.json())
             .then(data => {
-                setResult(data.string || data);
-                setJsonResult(JSON.stringify(data, null, 2));
+                setResult(data);
             })
             .catch(error => console.error(error));
     };
@@ -46,10 +45,27 @@ export default function App() {
                     />
                     <button>Convert!</button>
                 </form>
-                <p className="result">{result}</p>
-                <div className="jsonResult">
-                    <code>{jsonResult}</code>
-                </div>
+                <p className="result">{result.string ? result.string : result}</p>
+                {
+                    result && (
+                        <button
+                            onClick={() => setDisplay(prev => !prev)}
+                            className="jsonToggler"
+                        >
+                            {display ? "Hide JSON" : "See JSON"}
+                        </button>
+                    )
+                }
+                {
+                    display
+                        ? (
+                            <div className="jsonResult">
+                                <code>{JSON.stringify(result, null, 2)}</code>
+                            </div>
+                        )
+                        : ""
+                }
+
             </main>
 
         </div>
