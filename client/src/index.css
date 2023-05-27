@@ -1,6 +1,6 @@
-html {
+/* html {
     color-scheme: light dark;
-}
+} */
 
 body {
     margin: 0;
@@ -41,11 +41,12 @@ video {
     font-size: 1.5rem;
     border: none;
     border-radius: 5px;
-    background-color: #3e3e42;
     box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.1);
     margin: 1rem;
     padding: 1rem;
     outline: none;
+    color: aliceblue;
+    background: #3e3e42;
 }
 
 .form button {
@@ -81,6 +82,20 @@ video {
     font-size: 1.125rem;
     white-space: pre-line;
     text-align: left;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms, padding 500ms;
+    ;
+}
+
+.jsonResult>code {
+    overflow: hidden;
+}
+
+.jsonResult.expand {
+    padding: 16px;
+    grid-template-rows: 1fr;
 }
 
 @media screen and (max-width: 768px) {

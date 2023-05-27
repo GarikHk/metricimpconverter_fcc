@@ -48,22 +48,19 @@ export default function App() {
                 <p className="result">{result.string ? result.string : result}</p>
                 {
                     result && (
-                        <button
-                            onClick={() => setDisplay(prev => !prev)}
-                            className="jsonToggler"
-                        >
-                            {display ? "Hide JSON" : "See JSON"}
-                        </button>
-                    )
-                }
-                {
-                    display
-                        ? (
-                            <div className="jsonResult">
+                        <>
+                            <button
+                                onClick={() => setDisplay(prev => !prev)}
+                                className="jsonToggler"
+                            >
+                                {display ? "Hide JSON" : "See JSON"}
+                            </button>
+
+                            < div className={!display ? "jsonResult" : "jsonResult expand"}>
                                 <code>{JSON.stringify(result, null, 2)}</code>
                             </div>
-                        )
-                        : ""
+                        </>
+                    )
                 }
 
             </main>
