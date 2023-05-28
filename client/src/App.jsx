@@ -57,7 +57,7 @@ export default function App() {
                             </button>
 
                             < div className={!display ? "jsonResult" : "jsonResult expand"}>
-                                <code>{JSON.stringify(result, null, 2)}</code>
+                                <pre>{JSON.stringify(result, null, 2)}</pre>
                             </div>
                         </>
                     )

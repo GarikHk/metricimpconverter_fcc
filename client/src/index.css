@@ -78,7 +78,6 @@ video {
     color: aliceblue;
     background: #3e3e42;
     border-radius: 5px;
-    padding: 1rem;
     font-size: 1.125rem;
     white-space: pre-line;
     text-align: left;
@@ -86,15 +85,17 @@ video {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 500ms, padding 500ms;
-    ;
 }
 
-.jsonResult>code {
+.jsonResult>pre {
+    margin: 0;
+    padding: 0;
     overflow: hidden;
 }
 
 .jsonResult.expand {
-    padding: 16px;
+    background: #3e3e42;
+    padding: 1rem;
     grid-template-rows: 1fr;
 }
 
