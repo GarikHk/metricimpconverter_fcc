@@ -19,6 +19,11 @@ video {
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
     max-width: min(70ch, 100% - 4rem);
     margin-inline: auto;
     text-align: center;
